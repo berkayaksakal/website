@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-g">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitoSecure Essential Defense</title>
+    <!-- Chosen Palette: Calm Neutral (Slate/Blue) -->
+    <!-- Application Structure Plan: Designed a 6-part narrative sales page to guide a low-security-mindset SME. Flow: 1) Hero (Hook), 2) Problem (Why?), 3) Solution (What?), 4) How it Works (Interactive tabs for the 3 blueprint sections), 5) ROI (Mandatory Chart.js visual), 6) CTA (Next Step). This narrative structure is more persuasive and user-friendly for a sales context than just re-plating the blueprint. The core interactivity is the 3-tab system, which directly maps to the blueprint's 3-part structure, allowing users to explore the service pillars. -->
+    <!-- Visualization & Content Choices: Report Info: Blueprint sections 1, 2, 3. Goal: Organize service features. Viz: Interactive Tabbed Interface. Interaction: Click to show/hide content. Justification: Breaks down complex service into 3 digestible, user-controlled steps. Library: Vanilla JS. | Report Info: ROI/Cost data (€1.2k-€1.8k vs €40k-€50k vs €50k-€200k). Goal: Compare service cost vs. alternatives/risks. Viz: Bar Chart. Interaction: Hover tooltips. Justification: Visually proves the ROI for a non-technical user. Library: Chart.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        
+        .tab-button.active {
+            border-color: #2563eb;
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto max-w-6xl px-4 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-700">
+                <span class="mr-2">🛡️</span>CognitoSecure
+            </a>
+            <a href="#cta" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-blue-700 transition duration-300">
+                Get Protected
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-white pt-20 pb-24 text-center">
+            <div class="container mx-auto max-w-4xl px-4">
+                <span class="text-blue-600 font-semibold">CognitoSecure Essential Defense Pack</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-3 mb-6">
+                    Simple, Affordable, Automated Cybersecurity for Your Business.
+                </h1>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+                    Stop guessing about your security. Our AI-powered service gives you foundational, always-on protection, letting you focus on your business—all for less than the cost of an intern.
+                </p>
+                <a href="#cta" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-xl hover:bg-blue-700 transition duration-300">
+                    Get Your Free Security Snapshot
+                </a>
+            </div>
+        </section>
+        
+        <section id="problem" class="py-20 bg-slate-100">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Are You Focusing on the Right Risks?</h2>
+                <p class="text-lg text-slate-700">
+                    For a small business, cybersecurity is confusing and expensive. You don't have a security team, and every "threat" feels like another distraction. You're worried about a breach but don't know where to start. The real risk isn't a super-hacker; it's a simple, overlooked vulnerability that costs you thousands in downtime and fines.
+                </p>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-24">
+            <div class="container mx-auto max-w-6xl px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Your Automated Security Team</h2>
+                    <p class="text-lg text-slate-700">
+                        Our service is built on three simple, automated pillars. We've designed it for business owners, not just IT experts. This interactive section shows how we protect you at every step, translating complex security tasks into simple, valuable outcomes.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center md:space-x-4 mb-8" role="tablist" aria-label="Service Features">
+                    <button id="tab-btn-1" role="tab" aria-controls="tab-content-1" aria-selected="true" class="tab-button active w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
+                        1. See Your Risks
+                    </button>
+                    <button id="tab-btn-2" role="tab" aria-controls="tab-content-2" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
+                        2. Stop Real Threats
+                    </button>
+                    <button id="tab-btn-3" role="tab" aria-controls="tab-content-3" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300">
+                        3. Respond Smarter
+                    </button>
+                </div>
+
+                <div class="mt-12">
+                    <div id="tab-content-1" role="tabpanel" tabindex="0" class="tab-content active">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Continuous EASM</h3>
+                                <p class="text-slate-600 mb-4">24/7 monitoring of all your internet-facing assets (websites, mail servers, cloud configuration).</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    We look like a hacker so you don't get hit by one. We find weaknesses before they do.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Vulnerability Detection</h3>
+                                <p class="text-slate-600 mb-4">Automated discovery and prioritization of known vulnerabilities and misconfigurations.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    You get a simple to-do list showing the 5 things you need to fix right now to be safer.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Actionable Reporting</h3>
+                                <p class="text-slate-600 mb-4">Simplified, prioritized risk reports focused on actionable fixes, not technical jargon.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    Eliminates guesswork. Your IT person (or MSP) knows exactly what to address first.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-content-2" role="tabpanel" tabindex="0" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">24/7 AI Monitoring</h3>
+                                <p class="text-slate-600 mb-4">Machine learning models constantly monitor logs and network traffic for suspicious patterns.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    Your 24/7 Digital Guard. The AI never sleeps and catches things a human would miss.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Automated Triage</h3>
+                                <p class="text-slate-600 mb-4">The AI automatically filters out low-priority alerts and false positives, reducing alert fatigue.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    Stops the Noise. Your team only gets notified for high-confidence, real threats.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Security Snapshot</h3>
+                                <p class="text-slate-600 mb-4">An initial executive-friendly risk assessment upon onboarding to give you instant clarity.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    A simple report showing where your risks are. A great start for compliance.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-content-3" role="tabpanel" tabindex="0" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Guided Incident Playbooks</h3>
+                                <p class="text-slate-600 mb-4">Access to pre-built, step-by-step instructions for responding to common scenarios.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    The "What To Do Next" Button. Clear instructions for problems like phishing or malware.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Cost Efficiency (ROI)</h3>
+                                <p class="text-slate-600 mb-4">A scalable, subscription-based platform that replaces the need for expensive, full-time staff.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    The Best ROI in Security. Equivalent to a Tier-1 analyst at a tiny fraction of the salary.
+                                </blockquote>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Risk Mitigation</h3>
+                                <p class="text-slate-600 mb-4">Dramatically reduces the time it takes to respond to a threat, from potential days to minutes.</p>
+                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
+                                    Saves Your Business. Faster response prevents small incidents from becoming disasters.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi" class="py-24 bg-slate-100">
+            <div class="container mx-auto max-w-6xl px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Protection vs. Cost: A Clearer Picture</h2>
+                    <p class="text-lg text-slate-700">
+                        The Essential Defense Pack isn't a cost; it's an investment in resilience. For a small business, a single breach can be catastrophic. This interactive chart compares the average annual cost of our service against the cost of a single in-house analyst or the devastating minimum cost of just one data breach.
+                    </p>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="roiChart"></canvas>
+                </div>
+                
+                <p class="text-center text-slate-600 mt-6 max-w-2xl mx-auto">
+                    Hover over the bars to see the comparison. Our service provides the coverage of a full-time analyst and protection against major breach costs, all for a predictable, low monthly fee.
+                </p>
+            </div>
+        </section>
+        
+        <section id="cta" class="py-24 bg-blue-700 text-white">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <h2 class="text-4xl font-bold mb-6">
+                    Ready for Simple, Foundational Security?
+                </h2>
+                <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
+                    Take the first step. Contact us today to get your **Free Security Snapshot Report**. We'll provide an instant, executive-friendly assessment of your company's risk exposure. No obligation, no technical jargon.
+                </p>
+                <a href="mailto:sales@cognitosecure.com" class="bg-white text-blue-700 px-10 py-4 rounded-lg font-semibold text-lg shadow-xl hover:bg-slate-100 transition duration-300">
+                    Get Your Free Snapshot
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="container mx-auto max-w-6xl px-4 text-center">
+            <p>&copy; 2025 CognitoSecure. All Rights Reserved. | 🛡️ Secure Your Business</p>
+        </div>
+    </footer>
+
+    <script>
+        function initTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetContentId = button.getAttribute('aria-controls');
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+
+                    tabContents.forEach(content => {
+                        if (content.id === targetContentId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+        
+        function initChart() {
+            const ctx = document.getElementById('roiChart').getContext('2d');
+            
+            const data = {
+                labels: [
+                    'CognitoSecure Essential', 
+                    '1x In-House Analyst', 
+                    '1x Avg. SME Breach'
+                ],
+                datasets: [{
+                    label: 'Average Annual Cost (€)',
+                    data: [
+                        (1500 * 12),
+                        45000,
+                        50000 
+                    ],
+                    backgroundColor: [
+                        '#2563eb',
+                        '#94a3b8',
+                        '#dc2626'
+                    ],
+                    borderColor: [
+                        '#1d4ed8',
+                        '#64748b',
+                        '#b91c1c'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                                }
+                                
+                                if(context.label === '1x Avg. SME Breach') {
+                                    return label + ' (Minimum Cost)';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', notation: 'compact' }).format(value);
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                             font: {
+                                size: 14
+                            },
+                             callback: function(value) {
+                                const label = this.getLabelForValue(value);
+                                if (label.length > 16) {
+                                    return label.split(' ').slice(0, 2).join(' ') + '...';
+                                }
+                                return label;
+                             }
+                        }
+                    }
+                }
+            };
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        }
+
+        window.onload = () => {
+            initTabs();
+            initChart();
+        };
+    </script>
+</body>
+</html>
