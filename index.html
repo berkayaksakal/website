@@ -1,368 +1,175 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CognitoSecure: Simple Business Protection</title>
-    <!-- Chosen Palette: Calm Neutral (Slate/Blue) --><!-- Application Structure Plan: Narrative sales page structure (6 sections) to guide a non-technical SME user. Focus is on simplicity and outcome: 1) Hook, 2) Simple Problem, 3) Simple Solution, 4) The Process (Interactive tabs for the 3 core service pillars, using non-technical language), 5) ROI (Expert vs. Tool Chart), 6) CTA (Google Form). Structure chosen for persuasive flow and ease of understanding for low security mindset. --><!-- Visualization & Content Choices: Content simplified heavily to remove jargon (EASM -> Find Digital Doors). Interactive Tabs (Vanilla JS) break down service into 3 digestible steps. ROI visualization (Chart.js) uses a Bar Chart to compare Manual Expert Hours vs. Tool Hours, proving value without exposing price. --><!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --><script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-
-        @media (max-width: 640px) {
-            .chart-container {
-                height: 300px;
-            }
-        }
-        
-        .tab-button.active {
-            border-color: #2563eb;
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Custom style to maximize logo height within the header */
-        .logo-wrapper {
-            max-height: 80px; /* Sets a generous maximum height for the logo container */
-            overflow: hidden;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CognitoSecure | Clear, Confident Cyber Protection</title>
+  <meta name="description" content="CognitoSecure helps organizations of all sizes build clear, actionable cyber protection through expert-reviewed digital risk assessments and tailored security roadmaps.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 350px; }
+    .tab-button.active { border-color: #2563eb; background-color: #dbeafe; color: #1e40af; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto max-w-6xl px-4 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center logo-wrapper">
-                <!-- LOGO INTEGRATION: Uses a responsive size class h-full to fill the wrapper height. --><img src="CognitoSecureLogo.jpg" alt="CognitoSecure Logo" class="h-full w-auto max-h-16"> 
-            </a>
-            <a href="#cta" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-blue-700 transition duration-300">
-                Get Started
-            </a>
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="flex items-center space-x-2">
+        <img src="CognitoSecureLogo.jpg" alt="CognitoSecure Logo" class="h-12 w-auto">
+        <span class="text-xl font-semibold text-slate-900">CognitoSecure</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-slate-700 font-medium">
+        <a href="#problem" class="hover:text-blue-600 transition">Why Us</a>
+        <a href="#how-it-works" class="hover:text-blue-600 transition">Process</a>
+        <a href="#roi" class="hover:text-blue-600 transition">Impact</a>
+        <a href="#cta" class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-24 pb-28 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">Clarity in Cybersecurity. Confidence in Every Decision.</h1>
+      <p class="text-lg md:text-xl text-slate-700 mb-8">We empower organizations to understand and manage their digital risks—clearly, effectively, and without jargon. From startups to global teams, we make cybersecurity strategic, not stressful.</p>
+      <a href="#cta" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:bg-blue-700 transition">Book a Free Discovery Call</a>
+    </div>
+  </section>
+
+  <section id="problem" class="py-20 bg-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">The Challenge Isn’t Just Hackers — It’s Uncertainty.</h2>
+      <p class="text-lg text-slate-700 mb-8">In fast-moving digital environments, security confusion causes more risk than cybercriminals do. Endless alerts, complex tools, and unclear priorities waste time and budget. CognitoSecure turns this chaos into clarity with clear visibility, verified insights, and a focused action roadmap.</p>
+      <img src="team-discussion.jpg" alt="Cybersecurity strategy meeting" class="rounded-2xl shadow-lg mx-auto max-w-full h-auto">
+    </div>
+  </section>
+
+  <section id="how-it-works" class="py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">A Simple, Three-Step Protection Framework</h2>
+      <p class="text-lg text-slate-700 mb-10">Our streamlined approach makes cybersecurity approachable and measurable — giving leaders a practical roadmap to reduce risk and strengthen trust.</p>
+
+      <div class="flex flex-col md:flex-row justify-center md:space-x-4 mb-10">
+        <button class="tab-button active w-full md:w-auto p-4 font-semibold rounded-lg border-b-4 border-transparent hover:bg-blue-50 transition" aria-controls="tab1">1. Discover Digital Exposure</button>
+        <button class="tab-button w-full md:w-auto p-4 font-semibold rounded-lg border-b-4 border-transparent hover:bg-blue-50 transition" aria-controls="tab2">2. Validate Cloud & Code</button>
+        <button class="tab-button w-full md:w-auto p-4 font-semibold rounded-lg border-b-4 border-transparent hover:bg-blue-50 transition" aria-controls="tab3">3. Deliver Actionable Roadmap</button>
+      </div>
+
+      <div id="tab1" class="tab-content active grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <img src="assets-scan.png" alt="Digital assets map" class="w-16 mb-4">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Full Surface Mapping</h3>
+          <p class="text-slate-600">We find every domain, server, and cloud link related to your brand — even forgotten or unmonitored ones — building a complete map of your digital exposure.</p>
         </div>
-    </header>
-
-    <main>
-        <section id="hero" class="bg-white pt-20 pb-24 text-center">
-            <div class="container mx-auto max-w-4xl px-4">
-                <span class="text-blue-600 font-semibold">Your Foundational Security Blueprint</span>
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-3 mb-6">
-                    Stop Worrying About Security. Start Fixing What Matters.
-                </h1>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-                    We deliver simple, expert-reviewed security assessments that tell you exactly what risks your business faces and what specific steps to take next. No jargon, just results.
-                </p>
-                <a href="#cta" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-xl hover:bg-blue-700 transition duration-300">
-                    Get Your Free Discovery Call
-                </a>
-            </div>
-        </section>
-        
-        <section id="problem" class="py-20 bg-slate-100">
-            <div class="container mx-auto max-w-4xl px-4 text-center">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Real Problem Isn't Hackers. It's Confusion.</h2>
-                <p class="text-lg text-slate-700">
-                    As a business owner, you don't have time to sort through thousands of technical alerts or pay an expensive expert for guesswork. The biggest risk is an easy, visible weakness you don't know about. We solve this by filtering out the noise and giving you a simple, prioritized to-do list.
-                </p>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="py-24">
-            <div class="container mx-auto max-w-6xl px-4">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Simple 3-Step Protection Process</h2>
-                    <p class="text-lg text-slate-700">
-                        Our service is built around three clear steps that find every weakness and tell you how to fix it. This is how we go from confusion to clarity.
-                    </p>
-                </div>
-
-                <div class="flex flex-col md:flex-row justify-center md:space-x-4 mb-8" role="tablist" aria-label="Service Features">
-                    <button id="tab-btn-1" role="tab" aria-controls="tab-content-1" aria-selected="true" class="tab-button active w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
-                        1. Find Every Digital Door
-                    </button>
-                    <button id="tab-btn-2" role="tab" aria-controls="tab-content-2" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
-                        2. Check Your Code & Cloud
-                    </button>
-                    <button id="tab-btn-3" role="tab" aria-controls="tab-content-3" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300">
-                        3. Score Your Real Risk
-                    </button>
-                </div>
-
-                <div class="mt-12">
-                    <div id="tab-content-1" role="tabpanel" tabindex="0" class="tab-content active">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Complete Asset Search</h3>
-                                <p class="text-slate-600 mb-4">We find every domain, subdomain, IP address, and cloud link connected to your business, including forgotten test sites.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    We create a full inventory of everything an attacker could see.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Digital Fingerprinting</h3>
-                                <p class="text-slate-600 mb-4">We identify the specific web servers and software versions you are running and check for expired security certificates (SSL/TLS).</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    We flag outdated software that is easy for hackers to exploit.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Brand Protection</h3>
-                                <p class="text-slate-600 mb-4">We look for phishing websites or typosquatting domains set up to steal your customers and employees.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    We protect your name and reputation from fraud.
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="tab-content-2" role="tabpanel" tabindex="0" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Code Leak Detection</h3>
-                                <p class="text-slate-600 mb-4">We scan your code repositories (public and private) for accidentally exposed secrets like passwords, keys, and access tokens.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Stops the most common way hackers get initial access.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Cloud Configuration Audit</h3>
-                                <p class="text-slate-600 mb-4">We check cloud services (like AWS/Azure) for simple, critical mistakes: open databases, exposed storage, or too many employee permissions.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    We make sure your cloud is locked down properly.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Container Safety Check</h3>
-                                <p class="text-slate-600 mb-4">We identify containers used for applications and scan them for old, vulnerable software components.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Ensure the building blocks of your apps are secure.
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="tab-content-3" role="tabpanel" tabindex="0" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Credential Leak Monitoring</h3>
-                                <p class="text-slate-600 mb-4">We continuously monitor dark web and breach databases to see if any of your employee passwords have been leaked and are for sale.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Get an immediate alert if your password is compromised.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Real-World Risk Score</h3>
-                                <p class="text-slate-600 mb-4">We take all the findings and assign a score based on how easily a real attacker could exploit them, focusing on business impact.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    This is the difference between a minor issue and a crisis.
-                                </blockquote>
-                            </div>
-                            <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Phased Action Roadmap</h3>
-                                <p class="text-slate-600 mb-4">You receive a clear plan telling you exactly what to fix in the next 30, 60, and 90 days, with step-by-step guidance.</p>
-                                <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Stops the guesswork. You know your next 3 steps instantly.
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="roi" class="py-24 bg-slate-100">
-            <div class="container mx-auto max-w-6xl px-4">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Expert Analysis vs. Basic Scans</h2>
-                    <p class="text-lg text-slate-700">
-                        The biggest benefit is our **senior security expert review**. Unlike automated tools that generate hundreds of false alarms, our experts manually validate every finding. This chart shows the value of their time, giving you **clarity instead of noise.**
-                    </p>
-                </div>
-                
-                <div class="chart-container">
-                    <canvas id="roiChart"></canvas>
-                </div>
-                
-                <p class="text-center text-slate-600 mt-6 max-w-2xl mx-auto">
-                    **Our Approach:** Focuses on the few issues that actually matter, saving your team weeks of wasted effort.
-                </p>
-            </div>
-        </section>
-        
-        <section id="cta" class="py-24 bg-blue-700 text-white">
-            <div class="container mx-auto max-w-4xl px-4 text-center">
-                <h2 class="text-4xl font-bold mb-6">
-                    Ready to Get Your Clear Action Plan?
-                </h2>
-                <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
-                    Fill out the secure form below to schedule your **Free 30-Minute Discovery Call**. We'll discuss your concerns and clarify the assessment scope—no obligation, no pressure.
-                </p>
-                
-                <!-- START: Google Forms Embedded Contact Form --><div class="w-full max-w-lg mx-auto bg-white rounded-xl shadow-2xl overflow-hidden p-2">
-                    <!-- The iframe uses a responsive width (100%) and the required height (2724px) for your specific form --><iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSe0-qqproIsvzfSSV03YfzqCxv6lCv3YFWcIW6-JVJMhjJ_8w/viewform?embedded=true" 
-                        width="100%" 
-                        height="2724" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        title="CognitoSecure Contact Form powered by Google Forms"
-                        class="block"
-                    >Loading Google Form...</iframe>
-                    <!-- END: Google Forms Embedded Contact Form --></div>
-                
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-slate-900 text-slate-400 py-12">
-        <div class="container mx-auto max-w-6xl px-4 text-center">
-            <p>&copy; 2025 CognitoSecure. All Rights Reserved. | 🛡️ Simple, Effective Security</p>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <img src="brand-protection.png" alt="Brand protection icon" class="w-16 mb-4">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Brand & Domain Integrity</h3>
+          <p class="text-slate-600">We detect phishing or impersonation attempts and safeguard your reputation before they reach your customers.</p>
         </div>
-    </footer>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <img src="vulnerability-detection.png" alt="Vulnerability analysis" class="w-16 mb-4">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Infrastructure Weakness Scan</h3>
+          <p class="text-slate-600">We highlight critical exposures and prioritize them based on real-world impact, giving you a clear risk overview in minutes.</p>
+        </div>
+      </div>
 
-    <script>
-        function initTabs() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+      <div id="tab2" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Cloud Configuration Review</h3>
+          <p class="text-slate-600">Audit your cloud environments (AWS, Azure, etc.) for overexposed data or excessive access permissions.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Source Code Integrity</h3>
+          <p class="text-slate-600">Detect leaked keys, passwords, or tokens in your code repositories to prevent unauthorized access.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Container & API Safety</h3>
+          <p class="text-slate-600">Scan deployed apps and containers for outdated components or insecure endpoints that attackers exploit.</p>
+        </div>
+      </div>
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetContentId = button.getAttribute('aria-controls');
+      <div id="tab3" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Risk Scoring & Prioritization</h3>
+          <p class="text-slate-600">Receive a business-impact-based risk score that guides decision-making and investment focus.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Step-by-Step Action Plan</h3>
+          <p class="text-slate-600">We deliver a phased 30-60-90 day roadmap for remediation, simplifying your next security steps.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+          <h3 class="text-xl font-bold text-blue-700 mb-2">Continuous Improvement</h3>
+          <p class="text-slate-600">Enable ongoing monitoring to stay ahead of threats and track measurable progress over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                        btn.setAttribute('aria-selected', 'false');
-                    });
-                    
-                    button.classList.add('active');
-                    button.setAttribute('aria-selected', 'true');
+  <section id="roi" class="py-24 bg-white text-center">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Expert Insight That Multiplies ROI</h2>
+      <p class="text-lg text-slate-700 mb-10">Automated tools flood you with alerts; our expert analysts turn those alerts into clear business actions. The difference isn’t just clarity — it’s efficiency and saved time.</p>
+      <div class="chart-container mb-8">
+        <canvas id="roiChart"></canvas>
+      </div>
+      <p class="text-slate-600">With CognitoSecure, organizations focus on what matters most, cutting wasted hours and reducing risk exposure dramatically.</p>
+    </div>
+  </section>
 
-                    tabContents.forEach(content => {
-                        if (content.id === targetContentId) {
-                            content.classList.add('active');
-                        } else {
-                            content.classList.remove('active');
-                        }
-                    });
-                });
-            });
-        }
-        
-        function initChart() {
-            const ctx = document.getElementById('roiChart').getContext('2d');
-            
-            // Simplified data to show comparison of time/effort spent on analysis
-            const data = {
-                labels: [
-                    'Basic Automated Scan (Tool Time)', 
-                    'CognitoSecure (Expert Validation Time)'
-                ],
-                datasets: [{
-                    label: 'Senior Analyst Hours',
-                    data: [
-                        4, // Time spent setting up a generic tool
-                        25 // Time spent on manual validation and analysis (from Blueprint: 20-25 hours)
-                    ],
-                    backgroundColor: [
-                        '#94a3b8',
-                        '#2563eb'
-                    ],
-                    borderColor: [
-                        '#64748b',
-                        '#1d4ed8'
-                    ],
-                    borderWidth: 1
-                }]
-            };
+  <section id="cta" class="py-24 bg-blue-700 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-6">Ready to Build Confidence in Your Cyber Resilience?</h2>
+      <p class="text-lg text-blue-100 mb-10">Book your free 30-minute discovery call. We'll assess your priorities and outline your next steps — no obligation, no jargon.</p>
+      <div class="bg-white rounded-xl shadow-xl p-4 overflow-hidden max-w-lg mx-auto">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe0-qqproIsvzfSSV03YfzqCxv6lCv3YFWcIW6-JVJMhjJ_8w/viewform?embedded=true" width="100%" height="2400" frameborder="0" title="Contact Form"></iframe>
+      </div>
+    </div>
+  </section>
 
-            const options = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (context.parsed.y !== null) {
-                                    return `Expert Hours: ${context.parsed.y}`;
-                                }
-                                return label;
-                            },
-                             title: function(context) {
-                                if (context[0].label === 'Basic Automated Scan (Tool Time)') {
-                                    return 'Basic Tools: High Noise';
-                                }
-                                return 'CognitoSecure: High Clarity';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Manual Analyst Hours Spent'
-                        },
-                        ticks: {
-                            callback: function(value) {
-                                return value + ' hrs';
-                            }
-                        }
-                    },
-                    x: {
-                        ticks: {
-                             font: {
-                                size: 14
-                            },
-                             callback: function(value) {
-                                const label = this.getLabelForValue(value);
-                                if (label.length > 16) {
-                                    return label.split(' ').slice(0, 2).join(' ') + '...';
-                                }
-                                return label;
-                             }
-                        }
-                    }
-                }
-            };
-            
-            new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: options
-            });
-        }
+  <footer class="bg-slate-900 text-slate-400 py-10 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+      <p>&copy; 2025 CognitoSecure. All rights reserved. | Designed for clarity and impact.</p>
+    </div>
+  </footer>
 
-        window.onload = () => {
-            initTabs();
-            initChart();
-        };
-    </script>
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+      });
+    });
+
+    const ctx = document.getElementById('roiChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Automated Tools', 'CognitoSecure Expert Review'],
+        datasets: [{
+          data: [4, 25],
+          backgroundColor: ['#94a3b8', '#2563eb'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: 'Expert Hours Invested' } }
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
 </body>
 </html>
