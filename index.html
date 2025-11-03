@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-g">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CognitoSecure Essential Defense</title>
+    <title>CognitoSecure: Simple Business Protection</title>
     <!-- Chosen Palette: Calm Neutral (Slate/Blue) -->
-    <!-- Application Structure Plan: Designed a 6-part narrative sales page to guide a low-security-mindset SME. Flow: 1) Hero (Hook), 2) Problem (Why?), 3) Solution (What?), 4) How it Works (Interactive tabs for the 3 blueprint sections), 5) ROI (Mandatory Chart.js visual), 6) CTA (Next Step). This narrative structure is more persuasive and user-friendly for a sales context than just re-plating the blueprint. The core interactivity is the 3-tab system, which directly maps to the blueprint's 3-part structure, allowing users to explore the service pillars. -->
-    <!-- Visualization & Content Choices: Report Info: Blueprint sections 1, 2, 3. Goal: Organize service features. Viz: Interactive Tabbed Interface. Interaction: Click to show/hide content. Justification: Breaks down complex service into 3 digestible, user-controlled steps. Library: Vanilla JS. | Report Info: ROI/Cost data (€1.2k-€1.8k vs €40k-€50k vs €50k-€200k). Goal: Compare service cost vs. alternatives/risks. Viz: Bar Chart. Interaction: Hover tooltips. Justification: Visually proves the ROI for a non-technical user. Library: Chart.js. -->
+    <!-- Application Structure Plan: Narrative sales page structure (6 sections) to guide a non-technical SME user. Focus is on simplicity and outcome: 1) Hook, 2) Simple Problem, 3) Simple Solution, 4) The Process (Interactive tabs for the 3 core service pillars, using non-technical language), 5) ROI (Expert vs. Tool Chart), 6) CTA (Google Form). Structure chosen for persuasive flow and ease of understanding for low security mindset. -->
+    <!-- Visualization & Content Choices: Content simplified heavily to remove jargon (EASM -> Find Digital Doors). Interactive Tabs (Vanilla JS) break down service into 3 digestible steps. ROI visualization (Chart.js) uses a Bar Chart to compare Manual Expert Hours vs. Tool Hours, proving value without exposing price. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -56,7 +56,7 @@
                 <span class="mr-2">🛡️</span>CognitoSecure
             </a>
             <a href="#cta" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium shadow-md hover:bg-blue-700 transition duration-300">
-                Get Protected
+                Get Started
             </a>
         </div>
     </header>
@@ -64,24 +64,24 @@
     <main>
         <section id="hero" class="bg-white pt-20 pb-24 text-center">
             <div class="container mx-auto max-w-4xl px-4">
-                <span class="text-blue-600 font-semibold">CognitoSecure Essential Defense Pack</span>
+                <span class="text-blue-600 font-semibold">Your Foundational Security Blueprint</span>
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-3 mb-6">
-                    Simple, Affordable, Automated Cybersecurity for Your Business.
+                    Stop Worrying About Security. Start Fixing What Matters.
                 </h1>
                 <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-                    Stop guessing about your security. Our AI-powered service gives you foundational, always-on protection, letting you focus on your business—all for less than the cost of an intern.
+                    We deliver simple, expert-reviewed security assessments that tell you exactly what risks your business faces and what specific steps to take next. No jargon, just results.
                 </p>
                 <a href="#cta" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-xl hover:bg-blue-700 transition duration-300">
-                    Get Your Free Security Snapshot
+                    Get Your Free Discovery Call
                 </a>
             </div>
         </section>
         
         <section id="problem" class="py-20 bg-slate-100">
             <div class="container mx-auto max-w-4xl px-4 text-center">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">Are You Focusing on the Right Risks?</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Real Problem Isn't Hackers. It's Confusion.</h2>
                 <p class="text-lg text-slate-700">
-                    For a small business, cybersecurity is confusing and expensive. You don't have a security team, and every "threat" feels like another distraction. You're worried about a breach but don't know where to start. The real risk isn't a super-hacker; it's a simple, overlooked vulnerability that costs you thousands in downtime and fines.
+                    As a business owner, you don't have time to sort through thousands of technical alerts or pay an expensive expert for guesswork. The biggest risk is an **easy, visible weakness** you don't know about. We solve this by filtering out the noise and giving you a simple, prioritized to-do list.
                 </p>
             </div>
         </section>
@@ -89,21 +89,21 @@
         <section id="how-it-works" class="py-24">
             <div class="container mx-auto max-w-6xl px-4">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Your Automated Security Team</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Simple 3-Step Protection Process</h2>
                     <p class="text-lg text-slate-700">
-                        Our service is built on three simple, automated pillars. We've designed it for business owners, not just IT experts. This interactive section shows how we protect you at every step, translating complex security tasks into simple, valuable outcomes.
+                        Our service is built around three clear steps that find every weakness and tell you how to fix it. This is how we go from confusion to clarity.
                     </p>
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-center md:space-x-4 mb-8" role="tablist" aria-label="Service Features">
                     <button id="tab-btn-1" role="tab" aria-controls="tab-content-1" aria-selected="true" class="tab-button active w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
-                        1. See Your Risks
+                        1. Find Every Digital Door
                     </button>
                     <button id="tab-btn-2" role="tab" aria-controls="tab-content-2" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300 mb-2 md:mb-0">
-                        2. Stop Real Threats
+                        2. Check Your Code & Cloud
                     </button>
                     <button id="tab-btn-3" role="tab" aria-controls="tab-content-3" aria-selected="false" class="tab-button w-full md:w-auto text-lg font-semibold p-4 rounded-lg border-b-4 md:border-b-4 border-transparent hover:bg-blue-50 transition duration-300">
-                        3. Respond Smarter
+                        3. Score Your Real Risk
                     </button>
                 </div>
 
@@ -111,24 +111,24 @@
                     <div id="tab-content-1" role="tabpanel" tabindex="0" class="tab-content active">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Continuous EASM</h3>
-                                <p class="text-slate-600 mb-4">24/7 monitoring of all your internet-facing assets (websites, mail servers, cloud configuration).</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Complete Asset Search</h3>
+                                <p class="text-slate-600 mb-4">We find every domain, subdomain, IP address, and cloud link connected to your business, including forgotten test sites.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    We look like a hacker so you don't get hit by one. We find weaknesses before they do.
+                                    We create a full inventory of everything an attacker could see.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Vulnerability Detection</h3>
-                                <p class="text-slate-600 mb-4">Automated discovery and prioritization of known vulnerabilities and misconfigurations.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Digital Fingerprinting</h3>
+                                <p class="text-slate-600 mb-4">We identify the specific web servers and software versions you are running and check for expired security certificates (SSL/TLS).</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    You get a simple to-do list showing the 5 things you need to fix right now to be safer.
+                                    We flag outdated software that is easy for hackers to exploit.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Actionable Reporting</h3>
-                                <p class="text-slate-600 mb-4">Simplified, prioritized risk reports focused on actionable fixes, not technical jargon.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Brand Protection</h3>
+                                <p class="text-slate-600 mb-4">We look for phishing websites or typosquatting domains set up to steal your customers and employees.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Eliminates guesswork. Your IT person (or MSP) knows exactly what to address first.
+                                    We protect your name and reputation from fraud.
                                 </blockquote>
                             </div>
                         </div>
@@ -137,24 +137,24 @@
                     <div id="tab-content-2" role="tabpanel" tabindex="0" class="tab-content">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">24/7 AI Monitoring</h3>
-                                <p class="text-slate-600 mb-4">Machine learning models constantly monitor logs and network traffic for suspicious patterns.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Code Leak Detection</h3>
+                                <p class="text-slate-600 mb-4">We scan your code repositories (public and private) for accidentally exposed secrets like passwords, keys, and access tokens.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Your 24/7 Digital Guard. The AI never sleeps and catches things a human would miss.
+                                    Stops the most common way hackers get initial access.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Automated Triage</h3>
-                                <p class="text-slate-600 mb-4">The AI automatically filters out low-priority alerts and false positives, reducing alert fatigue.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Cloud Configuration Audit</h3>
+                                <p class="text-slate-600 mb-4">We check cloud services (like AWS/Azure) for simple, critical mistakes: open databases, exposed storage, or too many employee permissions.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Stops the Noise. Your team only gets notified for high-confidence, real threats.
+                                    We make sure your cloud is locked down properly.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Security Snapshot</h3>
-                                <p class="text-slate-600 mb-4">An initial executive-friendly risk assessment upon onboarding to give you instant clarity.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Container Safety Check</h3>
+                                <p class="text-slate-600 mb-4">We identify containers used for applications and scan them for old, vulnerable software components.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    A simple report showing where your risks are. A great start for compliance.
+                                    Ensure the building blocks of your apps are secure.
                                 </blockquote>
                             </div>
                         </div>
@@ -163,24 +163,24 @@
                     <div id="tab-content-3" role="tabpanel" tabindex="0" class="tab-content">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Guided Incident Playbooks</h3>
-                                <p class="text-slate-600 mb-4">Access to pre-built, step-by-step instructions for responding to common scenarios.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Credential Leak Monitoring</h3>
+                                <p class="text-slate-600 mb-4">We continuously monitor dark web and breach databases to see if any of your employee passwords have been leaked and are for sale.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    The "What To Do Next" Button. Clear instructions for problems like phishing or malware.
+                                    Get an immediate alert if your password is compromised.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Cost Efficiency (ROI)</h3>
-                                <p class="text-slate-600 mb-4">A scalable, subscription-based platform that replaces the need for expensive, full-time staff.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Real-World Risk Score</h3>
+                                <p class="text-slate-600 mb-4">We take all the findings and assign a score based on how easily a real attacker could exploit them, focusing on business impact.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    The Best ROI in Security. Equivalent to a Tier-1 analyst at a tiny fraction of the salary.
+                                    This is the difference between a minor issue and a crisis.
                                 </blockquote>
                             </div>
                             <div class="bg-white rounded-lg shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-blue-700 mb-3">Risk Mitigation</h3>
-                                <p class="text-slate-600 mb-4">Dramatically reduces the time it takes to respond to a threat, from potential days to minutes.</p>
+                                <h3 class="text-xl font-bold text-blue-700 mb-3">Phased Action Roadmap</h3>
+                                <p class="text-slate-600 mb-4">You receive a clear plan telling you exactly what to fix in the next 30, 60, and 90 days, with step-by-step guidance.</p>
                                 <blockquote class="border-l-4 border-blue-200 pl-4 text-slate-700 font-medium">
-                                    Saves Your Business. Faster response prevents small incidents from becoming disasters.
+                                    Stops the guesswork. You know your next 3 steps instantly.
                                 </blockquote>
                             </div>
                         </div>
@@ -192,9 +192,9 @@
         <section id="roi" class="py-24 bg-slate-100">
             <div class="container mx-auto max-w-6xl px-4">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Protection vs. Cost: A Clearer Picture</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Expert Analysis vs. Basic Scans</h2>
                     <p class="text-lg text-slate-700">
-                        The Essential Defense Pack isn't a cost; it's an investment in resilience. For a small business, a single breach can be catastrophic. This interactive chart compares the average annual cost of our service against the cost of a single in-house analyst or the devastating minimum cost of just one data breach.
+                        The biggest benefit is our **senior security expert review**. Unlike automated tools that generate hundreds of false alarms, our experts manually validate every finding. This chart shows the value of their time, giving you **clarity instead of noise.**
                     </p>
                 </div>
                 
@@ -203,7 +203,7 @@
                 </div>
                 
                 <p class="text-center text-slate-600 mt-6 max-w-2xl mx-auto">
-                    Hover over the bars to see the comparison. Our service provides the coverage of a full-time analyst and protection against major breach costs, all for a predictable, low monthly fee.
+                    **Our Approach:** Focuses on the few issues that actually matter, saving your team weeks of wasted effort.
                 </p>
             </div>
         </section>
@@ -211,14 +211,14 @@
         <section id="cta" class="py-24 bg-blue-700 text-white">
             <div class="container mx-auto max-w-4xl px-4 text-center">
                 <h2 class="text-4xl font-bold mb-6">
-                    Ready for Simple, Foundational Security?
+                    Ready to Get Your Clear Action Plan?
                 </h2>
                 <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
-                    Fill out the secure form below to claim your **Free Security Snapshot Report**. We'll provide an instant, executive-friendly assessment of your company's risk exposure.
+                    Fill out the secure form below to schedule your **Free 30-Minute Discovery Call**. We'll discuss your concerns and clarify the assessment scope—no obligation, no pressure.
                 </p>
                 
                 <!-- START: Google Forms Embedded Contact Form -->
-                <div class="w-full max-w-lg mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="w-full max-w-lg mx-auto bg-white rounded-xl shadow-2xl overflow-hidden p-2">
                     <!-- The iframe uses a responsive width (100%) and the required height (2724px) for your specific form -->
                     <iframe 
                         src="https://docs.google.com/forms/d/e/1FAIpQLSe0-qqproIsvzfSSV03YfzqCxv6lCv3YFWcIW6-JVJMhjJ_8w/viewform?embedded=true" 
@@ -239,7 +239,7 @@
 
     <footer class="bg-slate-900 text-slate-400 py-12">
         <div class="container mx-auto max-w-6xl px-4 text-center">
-            <p>&copy; 2025 CognitoSecure. All Rights Reserved. | 🛡️ Secure Your Business</p>
+            <p>&copy; 2025 CognitoSecure. All Rights Reserved. | 🛡️ Simple, Effective Security</p>
         </div>
     </footer>
 
@@ -274,28 +274,25 @@
         function initChart() {
             const ctx = document.getElementById('roiChart').getContext('2d');
             
+            // Simplified data to show comparison of time/effort spent on analysis
             const data = {
                 labels: [
-                    'CognitoSecure Essential', 
-                    '1x In-House Analyst', 
-                    '1x Avg. SME Breach'
+                    'Basic Automated Scan (Tool Time)', 
+                    'CognitoSecure (Expert Validation Time)'
                 ],
                 datasets: [{
-                    label: 'Average Annual Cost (€)',
+                    label: 'Senior Analyst Hours',
                     data: [
-                        (1500 * 12),
-                        45000,
-                        50000 
+                        4, // Time spent setting up a generic tool
+                        25 // Time spent on manual validation and analysis (from Blueprint: 20-25 hours)
                     ],
                     backgroundColor: [
-                        '#2563eb',
                         '#94a3b8',
-                        '#dc2626'
+                        '#2563eb'
                     ],
                     borderColor: [
-                        '#1d4ed8',
                         '#64748b',
-                        '#b91c1c'
+                        '#1d4ed8'
                     ],
                     borderWidth: 1
                 }]
@@ -312,17 +309,16 @@
                         callbacks: {
                             label: function(context) {
                                 let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
                                 if (context.parsed.y !== null) {
-                                    label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
-                                }
-                                
-                                if(context.label === '1x Avg. SME Breach') {
-                                    return label + ' (Minimum Cost)';
+                                    return `Expert Hours: ${context.parsed.y}`;
                                 }
                                 return label;
+                            },
+                             title: function(context) {
+                                if (context[0].label === 'Basic Automated Scan (Tool Time)') {
+                                    return 'Basic Tools: High Noise';
+                                }
+                                return 'CognitoSecure: High Clarity';
                             }
                         }
                     }
@@ -330,9 +326,13 @@
                 scales: {
                     y: {
                         beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Manual Analyst Hours Spent'
+                        },
                         ticks: {
                             callback: function(value) {
-                                return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', notation: 'compact' }).format(value);
+                                return value + ' hrs';
                             }
                         }
                     },
