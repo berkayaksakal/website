@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
     .chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 350px; }
@@ -18,7 +20,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-  <header class="bg-white shadow-sm sticky top-0 z-50">
+  <header class="bg-white shadow-sm sticky top-0 z-50" data-aos="fade-down">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#hero" class="flex items-center space-x-2">
         <img src="CognitoSecureLogo.jpg" alt="CognitoSecure Logo" class="h-12 w-auto">
@@ -33,7 +35,7 @@
     </div>
   </header>
 
-  <section id="hero" class="bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-24 pb-28 text-center">
+  <section id="hero" class="bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-24 pb-28 text-center" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">Clarity in Cybersecurity. Confidence in Every Decision.</h1>
       <p class="text-lg md:text-xl text-slate-700 mb-8">We empower organizations to understand and manage their digital risks—clearly, effectively, and without jargon. From startups to global teams, we make cybersecurity strategic, not stressful.</p>
@@ -41,15 +43,15 @@
     </div>
   </section>
 
-  <section id="problem" class="py-20 bg-white text-center">
+  <section id="problem" class="py-20 bg-white text-center" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">The Challenge Isn’t Just Hackers — It’s Uncertainty.</h2>
       <p class="text-lg text-slate-700 mb-8">In fast-moving digital environments, security confusion causes more risk than cybercriminals do. Endless alerts, complex tools, and unclear priorities waste time and budget. CognitoSecure turns this chaos into clarity with clear visibility, verified insights, and a focused action roadmap.</p>
-      <img src="team-discussion.jpg" alt="Cybersecurity strategy meeting" class="rounded-2xl shadow-lg mx-auto max-w-full h-auto">
+      <img src="images/team-discussion.jpg" alt="Cybersecurity strategy meeting" class="rounded-2xl shadow-lg mx-auto max-w-full h-auto">
     </div>
   </section>
 
-  <section id="how-it-works" class="py-24 bg-slate-50">
+  <section id="how-it-works" class="py-24 bg-slate-50" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">A Simple, Three-Step Protection Framework</h2>
       <p class="text-lg text-slate-700 mb-10">Our streamlined approach makes cybersecurity approachable and measurable — giving leaders a practical roadmap to reduce risk and strengthen trust.</p>
@@ -61,48 +63,48 @@
       </div>
 
       <div id="tab1" class="tab-content active grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
-          <img src="assets-scan.png" alt="Digital assets map" class="w-16 mb-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/assets-scan.gif" alt="Digital assets map" class="w-16 mb-4 animate-bounce">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Full Surface Mapping</h3>
           <p class="text-slate-600">We find every domain, server, and cloud link related to your brand — even forgotten or unmonitored ones — building a complete map of your digital exposure.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
-          <img src="brand-protection.png" alt="Brand protection icon" class="w-16 mb-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="zoom-in" data-aos-delay="200">
+          <img src="images/brand-protection.gif" alt="Brand protection icon" class="w-16 mb-4 animate-spin-slow">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Brand & Domain Integrity</h3>
           <p class="text-slate-600">We detect phishing or impersonation attempts and safeguard your reputation before they reach your customers.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
-          <img src="vulnerability-detection.png" alt="Vulnerability analysis" class="w-16 mb-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="zoom-in" data-aos-delay="300">
+          <img src="images/vulnerability-detection.gif" alt="Vulnerability analysis" class="w-16 mb-4 animate-pulse">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Infrastructure Weakness Scan</h3>
           <p class="text-slate-600">We highlight critical exposures and prioritize them based on real-world impact, giving you a clear risk overview in minutes.</p>
         </div>
       </div>
 
       <div id="tab2" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-right">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Cloud Configuration Review</h3>
           <p class="text-slate-600">Audit your cloud environments (AWS, Azure, etc.) for overexposed data or excessive access permissions.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-up">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Source Code Integrity</h3>
           <p class="text-slate-600">Detect leaked keys, passwords, or tokens in your code repositories to prevent unauthorized access.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-left">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Container & API Safety</h3>
           <p class="text-slate-600">Scan deployed apps and containers for outdated components or insecure endpoints that attackers exploit.</p>
         </div>
       </div>
 
       <div id="tab3" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-up">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Risk Scoring & Prioritization</h3>
           <p class="text-slate-600">Receive a business-impact-based risk score that guides decision-making and investment focus.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Step-by-Step Action Plan</h3>
           <p class="text-slate-600">We deliver a phased 30-60-90 day roadmap for remediation, simplifying your next security steps.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 text-left">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-left" data-aos="fade-up" data-aos-delay="400">
           <h3 class="text-xl font-bold text-blue-700 mb-2">Continuous Improvement</h3>
           <p class="text-slate-600">Enable ongoing monitoring to stay ahead of threats and track measurable progress over time.</p>
         </div>
@@ -110,7 +112,7 @@
     </div>
   </section>
 
-  <section id="roi" class="py-24 bg-white text-center">
+  <section id="roi" class="py-24 bg-white text-center" data-aos="fade-up">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Expert Insight That Multiplies ROI</h2>
       <p class="text-lg text-slate-700 mb-10">Automated tools flood you with alerts; our expert analysts turn those alerts into clear business actions. The difference isn’t just clarity — it’s efficiency and saved time.</p>
@@ -121,7 +123,7 @@
     </div>
   </section>
 
-  <section id="cta" class="py-24 bg-blue-700 text-white text-center">
+  <section id="cta" class="py-24 bg-blue-700 text-white text-center" data-aos="fade-up">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-4xl font-bold mb-6">Ready to Build Confidence in Your Cyber Resilience?</h2>
       <p class="text-lg text-blue-100 mb-10">Book your free 30-minute discovery call. We'll assess your priorities and outline your next steps — no obligation, no jargon.</p>
@@ -138,6 +140,8 @@
   </footer>
 
   <script>
+    AOS.init({ duration: 800, once: true });
+
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
 
